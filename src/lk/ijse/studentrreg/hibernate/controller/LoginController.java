@@ -3,5 +3,6 @@ package lk.ijse.studentrreg.hibernate.controller;
 /**
  * @author sithum
  */
-public class MainController {
+public class LoginController {
+    
 }

@@ -1,0 +1,44 @@
+.loginPane{
+    /*
+    -fx-border-radius: 100px 100px 100px 100px;
+    */
+    -fx-background-color: linear-gradient(#1cacfa, #1f3cfa);
+
+}
+
+.loginPaneFont{
+    -fx-font-family: Chandas;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    /*
+    -fx-font-smoothing-type: gray;
+    */
+}
+
+.loginAnchorRoot{
+    -fx-background-color: white;
+}
+
+.textField{
+    -fx-background-color: white;
+    -fx-text-fill: #646464;
+    -fx-background-radius: 10px;
+}
+
+.jfx-text-field .input-line{
+    -fx-pref-height: 0px;
+}
+
+.button{
+    -fx-background-color: #04e094;
+    -fx-text-fill: #ffffff;
+   /* -fx-font-family: AnjaliOldLipi;*/
+    -fx-font-weight: bold;
+    -fx-font-family: Ubuntu;
+    -fx-font-size: 14.5px;
+    -fx-background-radius: 9px;
+}
+
+.jfx-text-field .input-focused-line{
+    -fx-pref-height: 0px;
+}

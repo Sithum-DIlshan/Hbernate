@@ -14,12 +14,13 @@ import java.io.IOException;
 public class AppInitializer extends Application {
 
     public static void main(String[] args) {
+
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("view/Splash.fxml"));
         primaryStage.setScene(new Scene(load));
         primaryStage.show();
     }
