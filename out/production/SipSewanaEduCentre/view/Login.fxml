@@ -15,7 +15,7 @@
          <children>
             <Label layoutX="121.0" layoutY="35.0" styleClass="loginPaneFont" stylesheets="@../assets/style/loginStyle.css" text="WELCOME" />
             <JFXTextField labelFloat="true" layoutX="56.0" layoutY="141.0" prefHeight="39.0" prefWidth="270.0" promptText="                               User Name" styleClass="textField" stylesheets="@../assets/style/loginStyle.css" />
-            <JFXButton layoutX="103.0" layoutY="310.0" prefHeight="31.0" prefWidth="177.0" text="LOGIN" />
+            <JFXButton layoutX="103.0" layoutY="310.0" onAction="#login" prefHeight="31.0" prefWidth="177.0" text="LOGIN" />
             <JFXPasswordField labelFloat="true" layoutX="55.0" layoutY="228.0" prefHeight="39.0" prefWidth="270.0" promptText="                               Password" styleClass="textField" stylesheets="@../assets/style/loginStyle.css" />
          </children></Pane>
       <ImageView fitHeight="472.0" fitWidth="442.0" layoutX="381.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
