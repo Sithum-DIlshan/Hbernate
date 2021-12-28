@@ -1,12 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="397.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane fx:id="mainAnchor" prefHeight="614.0" prefWidth="1117.0" styleClass="pane" stylesheets="@../assets/style/mainPane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <JFXHamburger fx:id="hamburger" alignment="BASELINE_LEFT" layoutX="516.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" />
-      <JFXDrawer fx:id="drawer" prefHeight="397.0" prefWidth="78.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="237.0" prefHeight="614.0" prefWidth="237.0" />
+      <AnchorPane fx:id="anchor" prefHeight="614.0" prefWidth="880.0">
+         <children>
+            <Pane layoutX="41.0" layoutY="-211.0" prefHeight="303.0" prefWidth="467.0" rotate="42.0" style="-fx-background-color: #ff0040; -fx-background-radius: 70px;" />
+            <StackPane fx:id="parentStack" layoutX="10.0" layoutY="4.0" prefHeight="604.0" prefWidth="837.0">
+               <children>
+                  <Pane fx:id="studentDetails" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <ScrollPane layoutX="6.0" layoutY="131.0" prefHeight="461.0" prefWidth="837.0" stylesheets="@../assets/style/scroll-pane.css">
+                           <content>
+                              <VBox prefHeight="463.0" prefWidth="817.0">
+                                 <children>
+                                    <TableView fx:id="tblStudentDetails" prefHeight="536.0" prefWidth="820.0" stylesheets="@../assets/style/table-view.css">
+                                      <columns>
+                                        <TableColumn fx:id="colName" prefWidth="150.3333282470703" text="name" />
+                                        <TableColumn fx:id="colContact" prefWidth="133.66665649414062" text="contactno" />
+                                          <TableColumn fx:id="colAge" prefWidth="71.0" text="age" />
+                                          <TableColumn fx:id="colGender" minWidth="0.0" prefWidth="108.0" text="gender" />
+                                          <TableColumn fx:id="colEmail" minWidth="0.0" prefWidth="181.0" text="email" />
+                                          <TableColumn fx:id="colCourse" minWidth="0.0" prefWidth="188.0" text="course" />
+                                      </columns>
+                                       <styleClass>
+                                          <String fx:value="my-table" />
+                                          <String fx:value="red-column" />
+                                          <String fx:value="table-row-cell" />
+                                          <String fx:value="noheader" />
+                                       </styleClass>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <Label layoutX="63.0" layoutY="96.0" text="name" textFill="WHITE" />
+                        <Label layoutX="192.0" layoutY="95.0" text="contactno" textFill="WHITE" />
+                        <Label layoutX="313.0" layoutY="95.0" text="age" textFill="WHITE" />
+                        <Label layoutX="394.0" layoutY="95.0" text="gender" textFill="WHITE" />
+                        <Label layoutX="542.0" layoutY="96.0" text="email" textFill="WHITE" />
+                        <Label layoutX="725.0" layoutY="97.0" text="course" textFill="WHITE" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="addStudentPane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="txtFname" focusColor="#bfbfbf" labelFloat="true" layoutX="14.0" layoutY="127.0" prefHeight="34.0" prefWidth="162.0" promptText="               First Name" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtContactNo" focusColor="#bfbfbf" labelFloat="true" layoutX="14.0" layoutY="311.0" prefHeight="34.0" prefWidth="364.0" promptText="                                              Contact-No" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtParentname" focusColor="#bfbfbf" labelFloat="true" layoutX="14.0" layoutY="225.0" prefHeight="34.0" prefWidth="364.0" promptText="                                              Parent Name" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtMname" focusColor="#bfbfbf" labelFloat="true" layoutX="196.0" layoutY="127.0" prefHeight="34.0" prefWidth="162.0" promptText="             Middle Name" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtLname" focusColor="#bfbfbf" labelFloat="true" layoutX="369.0" layoutY="127.0" prefHeight="34.0" prefWidth="162.0" promptText="                Last Name" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="dob" defaultColor="#91c3be" layoutX="14.0" layoutY="472.0" prefHeight="34.0" prefWidth="259.0" promptText="                       Date of birth" styleClass="date-picker" stylesheets="@../assets/style/mainPane.css" />
+                        <JFXRadioButton fx:id="male" layoutX="131.0" layoutY="564.0" styleClass="radioButton" stylesheets="@../assets/style/mainPane.css" text="Male" />
+                        <Separator layoutX="446.0" layoutY="171.0" orientation="VERTICAL" prefHeight="429.0" prefWidth="3.0" stylesheets="@../assets/style/mainPane.css" />
+                        <JFXRadioButton fx:id="female" layoutX="214.0" layoutY="564.0" styleClass="radioButton" stylesheets="@../assets/style/mainPane.css" text="Female" />
+                        <JFXTextField fx:id="txtEmail" focusColor="#bfbfbf" labelFloat="true" layoutX="462.0" layoutY="225.0" prefHeight="34.0" prefWidth="313.0" promptText="                                              Email" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="province" focusColor="#bfbfbf" labelFloat="true" layoutX="462.0" layoutY="311.0" prefHeight="34.0" prefWidth="313.0" promptText="                                            Province" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="age" focusColor="#bfbfbf" labelFloat="true" layoutX="329.0" layoutY="472.0" prefHeight="34.0" prefWidth="59.0" promptText="     Age" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXButton fx:id="saveStudentBtn" layoutX="685.0" layoutY="518.0" prefHeight="34.0" prefWidth="105.0" styleClass="submitBtn" stylesheets="@../assets/style/mainPane.css" text="Submit" />
+                        <JFXComboBox fx:id="cmbPrograms" layoutX="500.0" layoutY="375.0" prefHeight="34.0" prefWidth="237.0" />
+                        <JFXTextField fx:id="txtAddress" focusColor="#bfbfbf" labelFloat="true" layoutX="14.0" layoutY="392.0" prefHeight="34.0" prefWidth="426.0" promptText="                                                            Address" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="home" prefHeight="200.0" prefWidth="862.0" visible="false">
+                     <children>
+                        <Pane fx:id="ttlStudents" layoutX="14.0" layoutY="180.0" onMouseEntered="#playMouseEnter" onMouseExited="#playMouseExit" prefHeight="169.0" prefWidth="221.0" styleClass="subPane" stylesheets="@../assets/style/mainPane.css">
+                           <children>
+                              <Label layoutX="54.0" layoutY="23.0" styleClass="subPaneText" stylesheets="@../assets/style/mainPane.css" text="Total Students" />
+                              <Label fx:id="lblStudentCount" layoutX="106.0" layoutY="85.0" styleClass="subPaneText" stylesheets="@../assets/style/mainPane.css" text="0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="ttlPrograms" layoutX="627.0" layoutY="180.0" onMouseEntered="#playMouseEnter" onMouseExited="#playMouseExit" prefHeight="169.0" prefWidth="221.0" styleClass="subPane" stylesheets="@../assets/style/mainPane.css">
+                           <children>
+                              <Label layoutX="52.0" layoutY="23.0" styleClass="subPaneText" stylesheets="@../assets/style/mainPane.css" text="Total Programs" />
+                              <Label fx:id="lblttlProgramsCount" layoutX="106.0" layoutY="85.0" styleClass="subPaneText" stylesheets="@../assets/style/mainPane.css" text="0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="addProgramPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <JFXTextField fx:id="txtProgramName" focusColor="#bfbfbf" labelFloat="true" layoutX="214.0" layoutY="228.0" prefHeight="34.0" prefWidth="364.0" promptText="                                                   Program" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtProgramId" focusColor="#bfbfbf" labelFloat="true" layoutX="214.0" layoutY="125.0" prefHeight="34.0" prefWidth="364.0" promptText="                                              Program Id" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="fee" focusColor="#bfbfbf" labelFloat="true" layoutX="256.0" layoutY="384.0" prefHeight="34.0" prefWidth="280.0" promptText="                                          Fee" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtDuration" focusColor="#bfbfbf" labelFloat="true" layoutX="362.0" layoutY="320.0" prefHeight="34.0" prefWidth="105.0" promptText="        Duration" stylesheets="@../assets/style/mainPane.css">
+                           <styleClass>
+                              <String fx:value="input-focused-line" />
+                              <String fx:value="input-line" />
+                              <String fx:value="jfx-text-field" />
+                              <String fx:value="textField" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXButton fx:id="saveProgramBtn" layoutX="673.0" layoutY="498.0" prefHeight="34.0" prefWidth="105.0" styleClass="submitBtn" stylesheets="@../assets/style/mainPane.css" text="Submit" />
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+         </children></AnchorPane>
+      <JFXHamburger fx:id="hamburger" alignment="BASELINE_LEFT" layoutX="1076.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="26.0" />
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package dao;
 
-import dao.custom.impl.ProgramsDaoImpl;
-import dao.custom.impl.StudentDaoImpl;
+import dao.custom.impl.*;
 
 /**
  * @author sithum
@@ -15,6 +14,7 @@ public class DAOFactory {
     public static DAOFactory getDAOFactory() {
         if (daoFactory == null) {
             daoFactory = new DAOFactory();
+            return daoFactory;
         }
         return daoFactory;
     }

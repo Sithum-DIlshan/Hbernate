@@ -1,35 +1,37 @@
 package dao.custom.impl;
 
-import dao.custom.Student;
+import dao.custom.StudentDao;
+import entity.Student;
 
 import java.util.List;
 
 /**
  * @author sithum
  */
-public class StudentDaoImpl implements Student {
+public class StudentDaoImpl implements StudentDao {
+
     @Override
-    public boolean add(Student student) throws Exception {
+    public boolean add(Student student) {
+        FactoryConfiguration
+    }
+
+    @Override
+    public boolean delete(String s) {
         return false;
     }
 
     @Override
-    public boolean delete(String s) throws Exception {
+    public boolean update(Student student) {
         return false;
     }
 
     @Override
-    public boolean update(Student student) throws Exception {
-        return false;
-    }
-
-    @Override
-    public Student search(String s) throws Exception {
+    public Student search(String s) {
         return null;
     }
 
     @Override
-    public List<Student> getAll() throws Exception {
+    public List<Student> getAll() {
         return null;
     }
 }

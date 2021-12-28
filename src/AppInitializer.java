@@ -1,3 +1,5 @@
+import entity.Student;
+import entity.embedded.Name;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -10,8 +12,11 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * @author sithum
@@ -19,12 +24,28 @@ import java.io.IOException;
 public class AppInitializer extends Application {
 
     public static void main(String[] args) {
-        launch(args);
+         launch(args);
+       /* Student student = new Student("S-001", new Name("Kamal", "Thilaka", "jayantha"), "Matara", "Kumuu", "0828282", new Date(2000, 10, 20), 20, "male", "Sithum", "Southern", "GDSE");
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction tx = session.beginTransaction();
+*//*
+        session.save(student);
+*//*
+        *//*Student students = (Student) session.merge(student);*//*
+       *//* Student student1 = session.get(Student.class, 1);
+        System.out.println(student1);*//*
+        session.delete(student);
+        tx.commit();
+        session.close();*/
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("view/Splash.fxml"));
+        /*Parent load = FXMLLoader.load(getClass().getResource("view/Splash.fxml"));
+        primaryStage.setScene(new Scene(load));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.show();*/
+        Parent load = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
         primaryStage.setScene(new Scene(load));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();

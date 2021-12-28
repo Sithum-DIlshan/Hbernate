@@ -1,0 +1,79 @@
+.pane {
+    -fx-background-color: #332345;
+}
+
+anchor {
+
+}
+
+.jfx-hamburger StackPane {
+    -fx-background-color: #d2d2d2;
+}
+
+.subPane {
+    -fx-background-color: linear-gradient(to right, #000458, #004e92);
+    -fx-background-radius: 20px;
+
+}
+
+.subPaneText {
+    -fx-font-family: Ubuntu;
+    -fx-text-fill: #eaece7;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.textField {
+    -fx-background-color: #f1f1f1;
+    -fx-text-fill: #646464;
+    -fx-background-radius: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: Ubuntu;
+    -fx-prompt-text-fill: #646464;
+}
+
+
+.jfx-text-field .input-line {
+    -fx-pref-height: 0px;
+}
+
+.jfx-text-field .input-focused-line {
+    -fx-pref-height: 0px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #e5e5e5;
+    -fx-background-radius: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: Ubuntu;
+    -fx-text-fill: #646464;
+    -fx-prompt-text-fill: #646464;
+
+}
+
+.radioButton {
+    -fx-text-fill: #e5e5e5;
+}
+
+.separator *.line {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #5d3f7e;
+}
+
+.submitBtn {
+    -fx-font-family: Ubuntu;
+    -fx-text-fill: #eaece7;
+    -fx-font-weight: bold;
+    -fx-border-color: #12b412;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.submitBtn:hover {
+    -fx-background-color: #12b412;
+}
+
+.table{
+
+}
