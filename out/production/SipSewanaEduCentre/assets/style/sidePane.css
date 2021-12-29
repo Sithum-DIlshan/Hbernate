@@ -1,0 +1,19 @@
+.button {
+    -fx-font-family: Ubuntu;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #362549;
+    -fx-background-radius: 20px 0 0px 20px;
+}
+
+.anchor {
+    -fx-background-color: #362549;
+}
+
+.button:hover {
+    -fx-background-color: #5a3a7e;
+}
+
+.buttonHome {
+    -fx-alignment: LEFT;
+}

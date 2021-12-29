@@ -1,22 +1,11 @@
-import entity.Student;
-import entity.embedded.Name;
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * @author sithum
@@ -24,17 +13,27 @@ import java.util.Date;
 public class AppInitializer extends Application {
 
     public static void main(String[] args) {
-         launch(args);
-       /* Student student = new Student("S-001", new Name("Kamal", "Thilaka", "jayantha"), "Matara", "Kumuu", "0828282", new Date(2000, 10, 20), 20, "male", "Sithum", "Southern", "GDSE");
+        launch(args);
+        /*Program program = new Program();
+        program.setpId("P-001");
+        program.setProgram("Internet");
+        program.setFee(20000);
+        program.setDuration(26);
+        Student student = new Student();
+        student.setAddress("M");
+        student.setStudentId("M");
+        student.setAge(22);
+        student.setCourse("Gdse");
+        student.setContactNo("0778888");
+        student.setName(new Name("Han","s", "s"));
+        student.setGender("M");
+        student.setParentName("Kumu");
+        student.setDob(null);
+        program.getStudentList().add(student);
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
-*//*
         session.save(student);
-*//*
-        *//*Student students = (Student) session.merge(student);*//*
-       *//* Student student1 = session.get(Student.class, 1);
-        System.out.println(student1);*//*
-        session.delete(student);
+        session.update(program);
         tx.commit();
         session.close();*/
     }

@@ -1,12 +1,7 @@
 package bo;
 
-import bo.custom.ProgramsBO;
 import bo.custom.impl.ProgramBOImpl;
 import bo.custom.impl.StudentBOImpl;
-import dao.DAOFactory;
-import dao.SuperDAO;
-import dao.custom.impl.ProgramsDaoImpl;
-import dao.custom.impl.StudentDaoImpl;
 
 /**
  * @author sithum

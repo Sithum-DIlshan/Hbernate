@@ -1,33 +1,33 @@
 package controller;
 
 import bo.BOFactory;
-import bo.SuperBO;
+import bo.custom.ProgramsBO;
 import bo.custom.StudentBO;
 import com.jfoenix.controls.*;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import dto.ProgramDTO;
 import dto.StudentDTO;
-import javafx.animation.*;
-import javafx.beans.property.DoubleProperty;
-import javafx.event.ActionEvent;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Glow;
-import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import view.util.Dialog;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -78,8 +78,10 @@ public class MainController implements Initializable {
     public JFXTextField fee;
     public JFXTextField txtDuration;
     public JFXButton saveProgramBtn;
-    
+    public Label allReadyOnAction;
+
     StudentBO studentBo = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
+    ProgramsBO program = (ProgramsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PROGRAMS);
 
     public void loadHome() {
         home.setVisible(true);
@@ -98,7 +100,13 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        studentUpdate();
         saveStudent();
+        saveProgram();
+        loadComboBoxPrograms();
+        ToggleGroup gender = new ToggleGroup();
+        male.setToggleGroup(gender);
+        female.setToggleGroup(gender);
         try {
             VBox box = FXMLLoader.load(getClass().getClassLoader().getResource("view/nodes/SideMenu.fxml"));
             drawer.setSidePane(box);
@@ -163,16 +171,101 @@ public class MainController implements Initializable {
 
     }
 
+    private void saveProgram() {
+        saveProgramBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                if (txtProgramName.getText().isEmpty() | txtProgramId.getText().isEmpty() | fee.getText().isEmpty() | txtDuration.getText().isEmpty()) {
+                    Dialog.showDialog("fill all fields", parentStack, "ok");
+                } else {
+                    program.save(new ProgramDTO(txtProgramId.getText(), txtProgramName.getText(), Integer.parseInt(txtDuration.getText()), Double.parseDouble(fee.getText())));
+                    txtProgramName.clear();
+                    txtProgramId.clear();
+                    fee.clear();
+                    txtDuration.clear();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void studentUpdate() {
+        allReadyOnAction.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("view/nodes/AddCourseToStudent.fxml"));
+                Scene scene = new Scene(parent);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private void loadComboBoxPrograms() {
+        /*try {
+            cmbPrograms.setValue(program.getAllPrograms());
+            *//*System.out.println(program.getAllPrograms());*//*
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        cmbPrograms.addEventHandler(MouseEvent.MOUSE_CLICKED,event -> {
+            try {
+                cmbPrograms.setItems(program.getAllPrograms());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     private void saveStudent() {
         saveStudentBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            StudentDTO dto = new StudentDTO("S-001", txtFname.getText(), txtMname.getText(), txtLname.getText(), txtAddress.getText(), txtParentname.getText(), txtContactNo.getText(), dob.getValue(), Integer.parseInt(age.getText()), "male", txtEmail.getText(), province.getText(), String.valueOf(cmbPrograms.getSelectionModel().selectedItemProperty().getValue()));
             try {
-                studentBo.saveStudent(dto);
+                if (txtFname.getText().isEmpty() | txtMname.getText().isEmpty() | txtLname.getText().isEmpty() | txtParentname.getText().isEmpty() | txtContactNo.getText().isEmpty() | txtAddress.getText().isEmpty() | dob.getEditor().getText().isEmpty() | age.getText().isEmpty() | txtEmail.getText().isEmpty() | province.getText().isEmpty() | cmbPrograms.getSelectionModel().isEmpty()) {
+                    Dialog.showDialog("Please fill all fields", parentStack, "ok");
+                } else if (!(male.isSelected() | female.isSelected())) {
+                    Dialog.showDialog("Please select gender are you gay?", parentStack, "ok");
+                } else {
+                    StudentDTO dto = new StudentDTO(getLastStudentId(), txtFname.getText(), txtMname.getText(), txtLname.getText(), txtAddress.getText(), txtParentname.getText(), txtContactNo.getText(), dob.getValue(), Integer.parseInt(age.getText()), "male", txtEmail.getText(), province.getText(), String.valueOf(cmbPrograms.getSelectionModel().selectedItemProperty().getValue()));
+                    studentBo.saveStudent(dto);
+                    txtFname.clear();
+                    txtMname.clear();
+                    txtLname.clear();
+                    txtAddress.clear();
+                    txtContactNo.clear();
+                    txtParentname.clear();
+                    dob.getEditor().clear();
+                    age.clear();
+                    txtEmail.clear();
+                    province.clear();
+                    female.setSelected(false);
+                    male.setSelected(false);
+                }
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         });
+    }
+
+    private String getLastStudentId() {
+        List lastId = studentBo.getLastId();
+        long tempId = (long) lastId.get(0);
+        if (tempId > 0) {
+            tempId = tempId + 1;
+            if (tempId < 9) {
+                return "S-00" + tempId;
+            } else if (tempId < 99) {
+                return "S-0" + tempId;
+            } else {
+                return "S-" + tempId;
+            }
+        }
+        return "S-001";
     }
 
     public void playMouseEnter(MouseEvent mouseEvent) {

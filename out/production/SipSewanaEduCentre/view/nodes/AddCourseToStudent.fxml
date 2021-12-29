@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="485.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddCourseToStudentController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to right, #aaff7f, #80fdff);">
+         <children>
+            <JFXComboBox fx:id="cmbSelectStudent" layoutX="50.0" layoutY="60.0" prefHeight="26.0" prefWidth="283.0" promptText="                        Select-Student" />
+            <JFXComboBox fx:id="cmbSelectProgram" layoutX="50.0" layoutY="161.0" prefHeight="26.0" prefWidth="283.0" promptText="                        Select-Program" />
+            <JFXButton fx:id="add" layoutX="386.0" layoutY="287.0" prefHeight="28.0" prefWidth="78.0" stylesheets="@../../assets/style/loginStyle.css" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

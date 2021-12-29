@@ -1,7 +1,10 @@
 package dto;
 
+import entity.Program;
+
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDTO {
     private String studentId;
@@ -17,6 +20,7 @@ public class StudentDTO {
     private String email;
     private String province;
     private String course;
+    private List<Program> programList = new ArrayList<>();
 
     public StudentDTO(String studentId, String fName, String mName, String lName, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province, String course) {
         this.studentId = studentId;
@@ -34,7 +38,32 @@ public class StudentDTO {
         this.course = course;
     }
 
+    public StudentDTO(String studentId, String fName, String mName, String lName, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province, String course, List<Program> programList) {
+        this.studentId = studentId;
+        this.fName = fName;
+        this.mName = mName;
+        this.lName = lName;
+        this.address = address;
+        this.parentName = parentName;
+        this.contactNo = contactNo;
+        this.dob = dob;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.province = province;
+        this.course = course;
+        this.programList = programList;
+    }
+
     public StudentDTO() {
+    }
+
+    public List<Program> getProgramList() {
+        return programList;
+    }
+
+    public void setProgramList(List<Program> programList) {
+        this.programList = programList;
     }
 
     public String getStudentId() {

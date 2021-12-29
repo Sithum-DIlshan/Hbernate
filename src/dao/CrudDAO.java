@@ -1,5 +1,7 @@
 package dao;
 
+import entity.Program;
+
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ public interface CrudDAO<T, ID> extends SuperDAO {
 
     boolean update(T t) throws Exception;
 
-    T search(ID id) throws Exception;
+    List<Program> search(ID id) throws Exception;
 
     List<T> getAll() throws Exception;
 }

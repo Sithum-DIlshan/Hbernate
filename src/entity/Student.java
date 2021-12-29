@@ -4,9 +4,11 @@ import entity.embedded.Name;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author sithum
@@ -26,9 +28,26 @@ public class Student {
     private String gender;
     private String email;
     private String province;
-    private String course;
+   /* private String course;*/
+    @ManyToMany
+    private
+    List<Program> programList = new ArrayList<>();
 
-    public Student(String studentId,Name name, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province, String course) {
+    public Student(String studentId, Name name, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province,  List<Program> programList) {
+        this.studentId = studentId;
+        this.name = name;
+        this.address = address;
+        this.parentName = parentName;
+        this.contactNo = contactNo;
+        this.dob = dob;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.province = province;
+        this.programList = programList;
+    }
+
+   /* public Student(String studentId, Name name, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province, String course) {
         this.studentId = studentId;
         this.name = name;
         this.address = address;
@@ -40,7 +59,7 @@ public class Student {
         this.email = email;
         this.province = province;
         this.course = course;
-    }
+    }*/
 
     public Student() {
     }
@@ -125,12 +144,12 @@ public class Student {
         this.province = province;
     }
 
-    public String getCourse() {
-        return course;
+    public List<Program> getProgramList() {
+        return programList;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setProgramList(List<Program> programList) {
+        this.programList = programList;
     }
 
     @Override
@@ -146,7 +165,7 @@ public class Student {
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
                 ", province='" + province + '\'' +
-                ", course='" + course + '\'' +
+                ", programList=" + programList +
                 '}';
     }
 }

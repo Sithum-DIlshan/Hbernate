@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="237.0" styleClass="anchor" stylesheets="@../../assets/style/sidePane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SideMenuController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnHome" accessibleText="home" alignment="BASELINE_LEFT" graphicTextGap="39.0" maxWidth="1.7976931348623157E308" prefHeight="44.0" stylesheets="@../../assets/style/sidePane.css" text="Home" textFill="WHITE">
+         <VBox.margin>
+            <Insets top="44.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-home-24.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.9" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnRegisterStudent" accessibleText="add_student" alignment="BASELINE_LEFT" graphicTextGap="39.0" maxWidth="1.7976931348623157E308" prefHeight="44.0" stylesheets="@../../assets/style/sidePane.css" text="Register Student" textFill="WHITE">
+         <VBox.margin>
+            <Insets top="69.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/group.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.9" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnAddProgram" accessibleText="add_program" alignment="BASELINE_LEFT" graphicTextGap="39.0" maxWidth="1.7976931348623157E308" prefHeight="44.0" stylesheets="@../../assets/style/sidePane.css" text="Add Program" textFill="WHITE">
+         <VBox.margin>
+            <Insets top="69.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/online-course.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.9" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnStudentDetails" accessibleText="student_details" alignment="BASELINE_LEFT" graphicTextGap="39.0" layoutX="10.0" layoutY="432.0" maxWidth="1.7976931348623157E308" prefHeight="44.0" stylesheets="@../../assets/style/sidePane.css" text="Student Details" textFill="WHITE">
+         <VBox.margin>
+            <Insets top="69.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/info.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>
