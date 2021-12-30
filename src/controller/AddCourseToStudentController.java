@@ -5,6 +5,8 @@ import bo.custom.ProgramsBO;
 import bo.custom.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import dto.ProgramDTO;
+import dto.StudentDTO;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 
@@ -25,11 +27,27 @@ public class AddCourseToStudentController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         selectStudent();
         selectProgram();
-        add_init();
+        try {
+            add_init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void add_init() {
+    private void add_init() throws Exception {
+        add.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                StudentDTO studentDTO = studentBo.search((String) cmbSelectStudent.getValue());
+                ProgramDTO programDTO = program.search((String) cmbSelectProgram.getValue());
+                /*System.out.println(studentDTO);*/
+                studentDTO.getProgramList().add(programDTO);
 
+                studentBo.update(studentDTO);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        });
     }
 
     private void selectProgram() {
@@ -45,7 +63,7 @@ public class AddCourseToStudentController implements Initializable {
     private void selectStudent() {
         cmbSelectStudent.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
-                cmbSelectStudent.setItems(studentBo.getAll());
+                cmbSelectStudent.setItems(studentBo.getAllIds());
             } catch (Exception e) {
                 e.printStackTrace();
             }

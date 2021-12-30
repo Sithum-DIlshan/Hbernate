@@ -3,9 +3,9 @@ package entity;
 import entity.embedded.Name;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +14,8 @@ import java.util.List;
  * @author sithum
  */
 @Entity
-@Table(name = "student")
 public class Student {
-    @Id /*@GenericGenerator(name="kaugen" , strategy="increment")
-    @GeneratedValue(generator="kaugen")*/
+    @Id
     private String studentId;
     private Name name;
     private String address;
@@ -28,12 +26,10 @@ public class Student {
     private String gender;
     private String email;
     private String province;
-   /* private String course;*/
-    @ManyToMany
-    private
-    List<Program> programList = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Program> programList = new ArrayList();
 
-    public Student(String studentId, Name name, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province,  List<Program> programList) {
+    public Student(String studentId, Name name, String address, String parentName, String contactNo, LocalDate dob, int age, String gender, String email, String province, List<Program> programList) {
         this.studentId = studentId;
         this.name = name;
         this.address = address;
@@ -154,18 +150,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "studentId='" + studentId + '\'' +
-                ", name=" + name +
-                ", address='" + address + '\'' +
-                ", parentName='" + parentName + '\'' +
-                ", contactNo='" + contactNo + '\'' +
-                ", dob=" + dob +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", email='" + email + '\'' +
-                ", province='" + province + '\'' +
-                ", programList=" + programList +
-                '}';
+        return "Student{" + "studentId='" + studentId + '\'' + ", name=" + name + ", address='" + address + '\'' + ", parentName='" + parentName + '\'' + ", contactNo='" + contactNo + '\'' + ", dob=" + dob + ", age=" + age + ", gender='" + gender + '\'' + ", email='" + email + '\'' + ", province='" + province + '\'' + ", programList=" + programList + '}';
     }
 }

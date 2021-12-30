@@ -35,15 +35,16 @@ public class ProgramsDaoImpl implements ProgramsDao {
     }
 
     @Override
-    public List<Program> search(String s) {
+    public Program search(String s) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from Program P where P.pId= :program_id");
+       /* Query query = session.createQuery("from Program P where P.pId= :program_id");
         query.setParameter("program_id", s);
-        List results = query.getResultList();
+        List results = query.getResultList();*/
+        Program program = session.get(Program.class, s);
         tx.commit();
         session.close();
-        return results;
+        return program;
     }
 
     @Override

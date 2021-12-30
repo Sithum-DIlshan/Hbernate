@@ -3,6 +3,7 @@ package bo.custom;
 import bo.SuperBO;
 import dto.StudentDTO;
 import javafx.collections.ObservableList;
+import tdm.StudentDetailsTM;
 
 import java.util.List;
 
@@ -14,5 +15,11 @@ public interface StudentBO extends SuperBO {
 
     List getLastId();
 
-    ObservableList<String> getAll() throws Exception;
+    ObservableList<String> getAllIds() throws Exception;
+
+    StudentDTO search(String id) throws Exception;
+
+    void update(StudentDTO studentDTO) throws Exception;
+
+    ObservableList<StudentDetailsTM> getAll() throws Exception;
 }

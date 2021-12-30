@@ -2,7 +2,6 @@ package dao.custom.impl;
 
 import dao.FactoryConfiguration;
 import dao.custom.StudentDao;
-import entity.Program;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -32,12 +31,23 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public boolean update(Student student) {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction tx = session.beginTransaction();
+        session.update(student);
+        tx.commit();
+        session.close();
+        return true;
     }
 
     @Override
-    public List<Program> search(String s) {
-        return null;
+    public Student search(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction tx = session.beginTransaction();
+        Student student = session.get(Student.class, id);
+        tx.commit();
+        session.close();
+        /*return results;*/
+        return student;
     }
 
     @Override

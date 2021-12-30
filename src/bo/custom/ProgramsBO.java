@@ -12,5 +12,5 @@ public interface ProgramsBO extends SuperBO {
 
     boolean save(ProgramDTO dto) throws Exception;
 
-    void search(String id) throws Exception;
+    ProgramDTO search(String id) throws Exception;
 }

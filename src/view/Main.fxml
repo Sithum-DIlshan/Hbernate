@@ -59,10 +59,10 @@
                         <Label layoutX="313.0" layoutY="95.0" text="age" textFill="WHITE" />
                         <Label layoutX="394.0" layoutY="95.0" text="gender" textFill="WHITE" />
                         <Label layoutX="542.0" layoutY="96.0" text="email" textFill="WHITE" />
-                        <Label layoutX="725.0" layoutY="97.0" text="course" textFill="WHITE" />
+                        <Label layoutX="726.0" layoutY="95.0" text="course" textFill="WHITE" />
                      </children>
                   </Pane>
-                  <Pane fx:id="addStudentPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="addStudentPane" prefHeight="200.0" prefWidth="200.0" visible="false">
                      <children>
                         <JFXTextField fx:id="txtFname" focusColor="#bfbfbf" labelFloat="true" layoutX="14.0" layoutY="127.0" prefHeight="34.0" prefWidth="162.0" promptText="               First Name" stylesheets="@../assets/style/mainPane.css">
                            <styleClass>
@@ -152,7 +152,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane fx:id="home" prefHeight="200.0" prefWidth="862.0" visible="false">
+                  <Pane fx:id="home" prefHeight="200.0" prefWidth="862.0">
                      <children>
                         <Pane fx:id="ttlStudents" layoutX="14.0" layoutY="180.0" onMouseEntered="#playMouseEnter" onMouseExited="#playMouseExit" prefHeight="169.0" prefWidth="221.0" styleClass="subPane" stylesheets="@../assets/style/mainPane.css">
                            <children>

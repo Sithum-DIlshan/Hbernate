@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -101,6 +102,16 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         studentUpdate();
+        try {
+            studentDetailsTable_init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            welcomePane_init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         saveStudent();
         saveProgram();
         loadComboBoxPrograms();
@@ -134,12 +145,22 @@ public class MainController implements Initializable {
                                 addStudentPane.setVisible(false);
                                 studentDetails.setVisible(false);
                                 addProgramPane.setVisible(false);
+                                try {
+                                    welcomePane_init();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             case "student_details":
                                 home.setVisible(false);
                                 addStudentPane.setVisible(false);
                                 studentDetails.setVisible(true);
                                 addProgramPane.setVisible(false);
+                                try {
+                                    studentDetailsTable_init();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                         }
                     });
@@ -169,6 +190,22 @@ public class MainController implements Initializable {
             }
         });
 
+    }
+
+    private void welcomePane_init() throws Exception {
+        lblStudentCount.setText(String.valueOf(studentBo.getAllIds().size()));
+        lblttlProgramsCount.setText(String.valueOf(program.getAllPrograms().size()));
+    }
+
+    private void studentDetailsTable_init() throws Exception {
+        colName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
+        colCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("e_mail"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+        tblStudentDetails.setItems(studentBo.getAll());
     }
 
     private void saveProgram() {

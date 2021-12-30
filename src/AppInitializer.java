@@ -14,40 +14,34 @@ public class AppInitializer extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        /*Program program = new Program();
-        program.setpId("P-001");
-        program.setProgram("Internet");
-        program.setFee(20000);
-        program.setDuration(26);
-        Student student = new Student();
-        student.setAddress("M");
-        student.setStudentId("M");
-        student.setAge(22);
-        student.setCourse("Gdse");
-        student.setContactNo("0778888");
-        student.setName(new Name("Han","s", "s"));
-        student.setGender("M");
-        student.setParentName("Kumu");
-        student.setDob(null);
-        program.getStudentList().add(student);
+
+
+/*
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
-        session.save(student);
-        session.update(program);
+        Query query = session.createQuery("from Student");
+        List list = query.list();
+        Student o = (Student) list.get(0);
+        List<Program> programList = o.getProgramList();
+        for(Program program : programList){
+            System.out.println(program.getpId());
+        }
+
         tx.commit();
-        session.close();*/
+        session.close();
+*/
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        /*Parent load = FXMLLoader.load(getClass().getResource("view/Splash.fxml"));
-        primaryStage.setScene(new Scene(load));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();*/
-        Parent load = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource("view/Splash.fxml"));
         primaryStage.setScene(new Scene(load));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
+       /* Parent load = FXMLLoader.load(getClass().getResource("view/Main.fxml"));
+        primaryStage.setScene(new Scene(load));
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.show();*/
     }
   /*@Override
   public void start(Stage primaryStage) {

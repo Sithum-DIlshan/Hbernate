@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class Program {
     private String program;
     private int duration;
     private double fee;
-    @ManyToMany(mappedBy = "programList")
+    @ManyToMany(mappedBy = "programList", fetch = FetchType.EAGER)
     private List<Student> studentList = new ArrayList<>();
 
     public Program(double fee, String pId, String program, int duration, List<Student> studentList) {
@@ -80,12 +81,6 @@ public class Program {
 
     @Override
     public String toString() {
-        return "Program{" +
-                "fee=" + fee +
-                ", pId='" + pId + '\'' +
-                ", program='" + program + '\'' +
-                ", duration=" + duration +
-                ", studentList=" + studentList +
-                '}';
+        return "Program{" + "fee=" + fee + ", pId='" + pId + '\'' + ", program='" + program + '\'' + ", duration=" + duration + ", studentList=" + studentList + '}';
     }
 }

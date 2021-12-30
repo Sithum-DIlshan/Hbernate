@@ -32,7 +32,13 @@ public class ProgramBOImpl implements ProgramsBO {
     }
 
     @Override
-    public void search(String id) throws Exception {
-        dao.search(id);
+    public ProgramDTO search(String id) throws Exception {
+        Program program = dao.search(id);
+        return new ProgramDTO(
+                program.getpId(),
+                program.getProgram(),
+                program.getDuration(),
+                program.getFee()
+        );
     }
 }
