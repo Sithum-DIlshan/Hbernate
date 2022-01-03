@@ -219,6 +219,8 @@ public class MainController implements Initializable {
                     txtProgramId.clear();
                     fee.clear();
                     txtDuration.clear();
+                    Dialog.showDialog("Program Saved", parentStack, "done");
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -279,6 +281,7 @@ public class MainController implements Initializable {
                     province.clear();
                     female.setSelected(false);
                     male.setSelected(false);
+                    Dialog.showDialog("Student Saved", parentStack, "done");
                 }
 
 

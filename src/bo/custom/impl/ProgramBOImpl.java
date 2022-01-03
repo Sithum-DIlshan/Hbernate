@@ -34,11 +34,6 @@ public class ProgramBOImpl implements ProgramsBO {
     @Override
     public ProgramDTO search(String id) throws Exception {
         Program program = dao.search(id);
-        return new ProgramDTO(
-                program.getpId(),
-                program.getProgram(),
-                program.getDuration(),
-                program.getFee()
-        );
+        return new ProgramDTO(program.getpId(), program.getProgram(), program.getDuration(), program.getFee());
     }
 }
